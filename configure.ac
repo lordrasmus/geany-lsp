@@ -97,6 +97,7 @@ AC_ARG_ENABLE([deprecated],
 		[GTK_CFLAGS="$GTK_CFLAGS -DG_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED"],
 		[])
 
+PKG_CHECK_MODULES([JSONRPC_GLIB], [jsonrpc-glib-1.0])
 
 # Check for binary relocation support
 GEANY_CHECK_BINRELOC

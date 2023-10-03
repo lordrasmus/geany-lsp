@@ -26,6 +26,9 @@ endforeach
 dep_mac_integration = dependency('gtk-mac-integration', version: '>= 3.0.1',
 	required: get_option('mac-integration'))
 
+dep_jsonrpc = dependency('jsonrpc-glib-1.0', version: '>= 3.26',
+	required: true)
+
 glib = deps[0]
 
 # detect libc
@@ -772,6 +775,7 @@ install_headers(
 	'src/toolbar.h',
 	'src/ui_utils.h',
 	'src/utils.h',
+	'src/lsp.h',
 	subdir: 'geany'
 )
 
@@ -855,6 +859,8 @@ libgeany = shared_library('geany',
 	'src/ui_utils.h',
 	'src/utils.c',
 	'src/utils.h',
+	'src/lsp.c',
+	'src/lsp.h',
 	gen_src,
 	win_src,
 	dep_mac_integration.found() ? ['src/osx.c', 'src/osx.h'] : [],
