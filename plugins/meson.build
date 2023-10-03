@@ -32,3 +32,32 @@ foreach plugin : plugins
 		install: not skip_install
 	)
 endforeach
+
+
+lsp_conf = [
+	'lsp/data/lsp.conf',
+]
+install_data(sources: lsp_conf, install_dir: cdata.get('GEANY_DATA_DIR') + '/lsp')
+
+
+shared_module('lsp',
+	'lsp/lsp-autocomplete.c',
+	'lsp/lsp-main.c',
+	'lsp/lsp-server.c',
+	'lsp/lsp-sync.c',
+	'lsp/lsp-client.c',
+	'lsp/lsp-diagnostics.c',
+	'lsp/lsp-hover.c',
+	'lsp/lsp-signature.c',
+	'lsp/lsp-log.c',
+	'lsp/lsp-goto.c',
+	'lsp/lsp-symbols.c',
+	'lsp/lsp-utils.c',
+	name_prefix: '',  # "lib" seems to be the default prefix
+	link_with: libgeany,
+	include_directories: plugin_inc,
+	c_args: [def_cflags, '-DG_LOG_DOMAIN="LSP"'],
+	dependencies: [deps, dep_jsonrpc, dep_libgeany],
+	install_dir: join_paths(prefix, get_option('libdir'), 'geany'),
+	install: true
+)

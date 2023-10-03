@@ -43,6 +43,7 @@
 #include "geanyfunctions.h"
 #include "highlighting.h"
 #include "keybindings.h"
+#include "lsp.h"
 #include "main.h"
 #include "msgwindow.h"
 #include "navqueue.h"

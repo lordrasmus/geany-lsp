@@ -18,6 +18,7 @@ export_la_LDFLAGS        = -module -avoid-version -no-undefined
 saveactions_la_LDFLAGS   = -module -avoid-version -no-undefined
 filebrowser_la_LDFLAGS   = -module -avoid-version -no-undefined
 splitwindow_la_LDFLAGS   = -module -avoid-version -no-undefined
+lsp_la_LDFLAGS           = -module -avoid-version -no-undefined
 
 if PLUGINS
 # Plugins to be installed
@@ -27,7 +28,8 @@ plugin_LTLIBRARIES = \
 	export.la \
 	saveactions.la \
 	filebrowser.la \
-	splitwindow.la
+	splitwindow.la \
+	lsp.la
 
 # Plugins not to be installed
 noinst_LTLIBRARIES = \
@@ -42,6 +44,22 @@ export_la_SOURCES        = export.c
 saveactions_la_SOURCES   = saveactions.c
 filebrowser_la_SOURCES   = filebrowser.c
 splitwindow_la_SOURCES   = splitwindow.c
+lsp_la_SOURCES           = \
+	lsp/lsp-main.c \
+	lsp/lsp-server.c \
+	lsp/lsp-sync.c \
+	lsp/lsp-utils.c \
+	lsp/lsp-client.c \
+	lsp/lsp-diagnostics.c \
+	lsp/lsp-hover.c \
+	lsp/lsp-signature.c \
+	lsp/lsp-log.c \
+	lsp/lsp-goto.c \
+	lsp/lsp-symbols.c \
+	lsp/lsp-autocomplete.c
+
+lspconfdir = $(pkgdatadir)/lsp
+dist_lspconf_DATA = lsp/data/lsp.conf
 
 demoplugin_la_CFLAGS    = -DG_LOG_DOMAIN=\""Demoplugin"\"
 demoproxy_la_CFLAGS     = -DG_LOG_DOMAIN=\""Demoproxy"\"
@@ -51,6 +69,7 @@ export_la_CFLAGS        = -DG_LOG_DOMAIN=\""Export"\"
 saveactions_la_CFLAGS   = -DG_LOG_DOMAIN=\""SaveActions"\"
 filebrowser_la_CFLAGS   = -DG_LOG_DOMAIN=\""FileBrowser"\"
 splitwindow_la_CFLAGS   = -DG_LOG_DOMAIN=\""SplitWindow"\"
+lsp_la_CFLAGS           = -DG_LOG_DOMAIN=\""LSP"\"
 
 demoplugin_la_LIBADD    = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
 demoproxy_la_LIBADD     = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
@@ -60,6 +79,7 @@ export_la_LIBADD        = $(top_builddir)/src/libgeany.la $(GTK_LIBS) -lm
 saveactions_la_LIBADD   = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
 filebrowser_la_LIBADD   = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
 splitwindow_la_LIBADD   = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
+lsp_la_LIBADD           = $(top_builddir)/src/libgeany.la $(GTK_LIBS) $(JSONRPC_GLIB_LIBS)
 
 endif # PLUGINS
 
@@ -76,6 +96,7 @@ AM_CPPFLAGS += \
 	-I$(top_srcdir)/scintilla/lexilla/include \
 	-I$(top_srcdir)/scintilla/include \
 	$(GTK_CFLAGS) \
+	$(JSONRPC_GLIB_CFLAGS) \
 	$(PLUGIN_CFLAGS)
 
 #
