@@ -77,7 +77,7 @@ static LspSymbolKind kind_icons[LSP_KIND_NUM] = {
 	TM_ICON_MEMBER,     /* LspKindEnumMember */
 	TM_ICON_STRUCT,     /* LspKindStruct */
 	TM_ICON_OTHER,      /* LspKindEvent */
-	TM_ICON_OTHER,      /* LspKindOperator */
+	TM_ICON_METHOD,     /* LspKindOperator */
 	TM_ICON_OTHER       /* LspKindTypeParameter */
 };
 
