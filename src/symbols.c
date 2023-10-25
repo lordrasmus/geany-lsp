@@ -542,7 +542,11 @@ static gchar *get_symbol_tooltip(GeanyDocument *doc, const TMTag *tag, gboolean 
 	gchar *utf8_name;
 
 	if (use_lsp)
+	{
+		if (tag->arglist)
+			return g_strdup(tag->arglist);
 		return get_symbol_name(doc, tag, include_scope, FALSE, TRUE);
+	}
 
 	utf8_name = tm_parser_format_function(tag->lang, tag->name,
 		tag->arglist, tag->var_type, tag->scope);
