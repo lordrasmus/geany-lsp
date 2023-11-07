@@ -57,6 +57,7 @@ lsp_la_SOURCES           = \
 	lsp/lsp-goto.c \
 	lsp/lsp-symbols.c \
 	lsp/lsp-semtokens.c \
+	lsp/lsp-progress.c \
 	lsp/lsp-autocomplete.c
 
 lspconfdir = $(pkgdatadir)/lsp
