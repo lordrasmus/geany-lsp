@@ -56,6 +56,7 @@ shared_module('lsp',
 	'lsp/lsp-symbol-kinds.c',
 	'lsp/lsp-semtokens.c',
 	'lsp/lsp-goto-panel.c',
+	'lsp/lsp-goto-anywhere.c',
 	'lsp/lsp-tm-tag.c',
 	'lsp/lsp-utils.c',
 	name_prefix: '',  # "lib" seems to be the default prefix
