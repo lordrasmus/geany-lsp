@@ -60,6 +60,7 @@ lsp_la_SOURCES           = \
 	lsp/lsp-semtokens.c \
 	lsp/lsp-progress.c \
 	lsp/lsp-lookup-panel.c \
+	lsp/lsp-tm-tag.c \
 	lsp/lsp-autocomplete.c
 
 lspconfdir = $(pkgdatadir)/lsp

@@ -56,6 +56,7 @@ shared_module('lsp',
 	'lsp/lsp-symbol-kinds.c',
 	'lsp/lsp-semtokens.c',
 	'lsp/lsp-lookup-panel.c',
+	'lsp/lsp-tm-tag.c',
 	'lsp/lsp-utils.c',
 	name_prefix: '',  # "lib" seems to be the default prefix
 	link_with: libgeany,
