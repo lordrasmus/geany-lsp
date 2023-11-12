@@ -45,6 +45,28 @@ saveactions_la_SOURCES   = saveactions.c
 filebrowser_la_SOURCES   = filebrowser.c
 splitwindow_la_SOURCES   = splitwindow.c
 lsp_la_SOURCES           = \
+	lsp/json-glib/json-array.c \
+	lsp/json-glib/json-builder.c \
+	lsp/json-glib/json-debug.c \
+	lsp/json-glib/json-gboxed.c \
+	lsp/json-glib/json-generator.c \
+	lsp/json-glib/json-gobject.c \
+	lsp/json-glib/json-gvariant.c \
+	lsp/json-glib/json-node.c \
+	lsp/json-glib/json-object.c \
+	lsp/json-glib/json-parser.c \
+	lsp/json-glib/json-path.c \
+	lsp/json-glib/json-reader.c \
+	lsp/json-glib/json-scanner.c \
+	lsp/json-glib/json-serializable.c \
+	lsp/json-glib/json-utils.c \
+	lsp/json-glib/json-value.c \
+	lsp/jsonrpc-glib/jsonrpc-client.c \
+	lsp/jsonrpc-glib/jsonrpc-input-stream.c \
+	lsp/jsonrpc-glib/jsonrpc-message.c \
+	lsp/jsonrpc-glib/jsonrpc-output-stream.c \
+	lsp/jsonrpc-glib/jsonrpc-server.c \
+	lsp/jsonrpc-glib/jsonrpc-marshalers.c \
 	lsp/lsp-main.c \
 	lsp/lsp-server.c \
 	lsp/lsp-sync.c \
@@ -75,7 +97,7 @@ export_la_CFLAGS        = -DG_LOG_DOMAIN=\""Export"\"
 saveactions_la_CFLAGS   = -DG_LOG_DOMAIN=\""SaveActions"\"
 filebrowser_la_CFLAGS   = -DG_LOG_DOMAIN=\""FileBrowser"\"
 splitwindow_la_CFLAGS   = -DG_LOG_DOMAIN=\""SplitWindow"\"
-lsp_la_CFLAGS           = -DG_LOG_DOMAIN=\""LSP"\"
+lsp_la_CFLAGS           = -DG_LOG_DOMAIN=\""LSP"\" -DJSON_COMPILATION -DJSONRPC_GLIB_COMPILATION
 
 demoplugin_la_LIBADD    = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
 demoproxy_la_LIBADD     = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
@@ -85,7 +107,7 @@ export_la_LIBADD        = $(top_builddir)/src/libgeany.la $(GTK_LIBS) -lm
 saveactions_la_LIBADD   = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
 filebrowser_la_LIBADD   = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
 splitwindow_la_LIBADD   = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
-lsp_la_LIBADD           = $(top_builddir)/src/libgeany.la $(GTK_LIBS) $(JSONRPC_GLIB_LIBS)
+lsp_la_LIBADD           = $(top_builddir)/src/libgeany.la $(GTK_LIBS)
 
 endif # PLUGINS
 
@@ -101,8 +123,10 @@ AM_CPPFLAGS += \
 	-I$(top_srcdir)/src/tagmanager \
 	-I$(top_srcdir)/scintilla/lexilla/include \
 	-I$(top_srcdir)/scintilla/include \
+	-I$(top_srcdir)/plugins/lsp/json-glib \
+	-I$(top_srcdir)/plugins/lsp/jsonrpc-glib \
+	-I$(top_srcdir)/plugins/lsp \
 	$(GTK_CFLAGS) \
-	$(JSONRPC_GLIB_CFLAGS) \
 	$(PLUGIN_CFLAGS)
 
 #
