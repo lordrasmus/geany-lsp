@@ -85,6 +85,7 @@ lsp_la_SOURCES           = \
 	lsp/lsp-goto-anywhere.c \
 	lsp/lsp-tm-tag.c \
 	lsp/lsp-format.c \
+	lsp/lsp-highlight.c \
 	lsp/lsp-autocomplete.c
 
 lspconfdir = $(pkgdatadir)/lsp
