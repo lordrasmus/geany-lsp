@@ -26,9 +26,6 @@ endforeach
 dep_mac_integration = dependency('gtk-mac-integration', version: '>= 3.0.1',
 	required: get_option('mac-integration'))
 
-dep_jsonrpc = dependency('jsonrpc-glib-1.0', version: '>= 3.26',
-	required: true)
-
 glib = deps[0]
 
 # detect libc
