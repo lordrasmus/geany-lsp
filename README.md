@@ -36,7 +36,10 @@ Alternatively, one can use [Bear](https://github.com/rizsotto/Bear) (`sudo apt i
 and generate this file using autotools by e.g. `bear -- make -j 9` (and has to be
 moved to the `build` subdirectory afterwards).
 4. Enable the LSP plugin in Geany.
-5. Create a new project with the base path pointing to the geany root directory.
+5. Open the configuration file using Tools->LSP Client->User Configuration and
+comment-out line `cmd=clangd` under the C section. This tells the plugin to
+start the `clangd` server for C files.
+6. Create a new project with the base path pointing to the geany root directory.
 The base path is used by the plugin to define the directory of the project - this
 is necessary for clangd for instance, but some other LSP servers like pylsp
 don't need any project directory.
