@@ -87,6 +87,7 @@ lsp_la_SOURCES           = \
 	lsp/lsp-format.c \
 	lsp/lsp-highlight.c \
 	lsp/lsp-rename.c \
+	lsp/lsp-command.c \
 	lsp/lsp-autocomplete.c
 
 lspconfdir = $(pkgdatadir)/lsp
