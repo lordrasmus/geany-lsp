@@ -71,7 +71,7 @@ lsp_la_SOURCES           = \
 	lsp/lsp-server.c \
 	lsp/lsp-sync.c \
 	lsp/lsp-utils.c \
-	lsp/lsp-client.c \
+	lsp/lsp-rpc.c \
 	lsp/lsp-diagnostics.c \
 	lsp/lsp-hover.c \
 	lsp/lsp-signature.c \
